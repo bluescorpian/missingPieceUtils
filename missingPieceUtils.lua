@@ -126,7 +126,7 @@ function module.retryUntil(try, maxAttempts, retryWait)
     maxAttempts = maxAttempts or 10
     if retryWait == nil then retryWait = 0.1 end
     local attempts = 0
-    while (maxAttempts == 0 or attempts < 2) do
+    while (maxAttempts == 0 or attempts < maxAttempts) do
         local success, value = pcall(function()
             return try()
         end)
