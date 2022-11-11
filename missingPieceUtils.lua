@@ -122,23 +122,23 @@ function module.findFuncInGC(funcName)
     end    
 end
 
-function module.retryUntil(try, failed, maxAttempts, retryWait)
+function module.retryUntil(try, maxAttempts, retryWait)
     maxAttempts = maxAttempts or 10
     if retryWait == nil then retryWait = 0.1 end
     local attempts = 0
-    while (attempts < 2) do
+    while (maxAttempts == 0 or attempts < 2) do
         local success, value = pcall(function()
             return try()
         end)
         if success and value then
-            return value
+            return true, attempts, value
         end
         attempts += 1
-        if retryWait then
+        if retryWait ~= 0 then
             task.wait(retryWait)
         end
     end
-    return failed()
+    return false, attempts
 end
 -- function module.filterObj(tb, filter)
 --     local newTb = {}
