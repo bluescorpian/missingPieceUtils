@@ -1,4 +1,4 @@
---loadstring
+-- loadstring
 -- local utils = loadstring(game:HttpGet("https://raw.githubusercontent.com/bluescorpian/missingPieceUtils/main/missingPieceUtils.lua"))()
 local VERSION = "0.1"
 local genv = getgenv()
@@ -131,14 +131,14 @@ function module.retryUntil(try, maxAttempts, retryWait)
             return try()
         end)
         if success and value then
-            return true, attempts, value
+            return true, (attempts), value
         end
         attempts += 1
         if retryWait ~= 0 then
             task.wait(retryWait)
         end
     end
-    return false, attempts
+    return false, (attempts)
 end
 -- function module.filterObj(tb, filter)
 --     local newTb = {}
