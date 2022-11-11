@@ -1,5 +1,5 @@
 --loadstring
--- local utils = loadstring(game:HttpGet("https://bit.ly/3MvJxjZ"))()
+-- local utils = loadstring(game:HttpGet("https://raw.githubusercontent.com/bluescorpian/missingPieceUtils/main/missingPieceUtils.lua"))()
 local VERSION = "0.1"
 local genv = getgenv()
 if type(genv.missingPieceUtils) == "table" and type(genv.missingPieceUtils[VERSION]) == "table" then return genv.missingPieceUtils[VERSION] end
