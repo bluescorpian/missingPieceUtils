@@ -19,6 +19,9 @@ end
 function module.tostring(v, maxDepth)
     local tables = {}
     local function _tostring(value)
+        if value == nil then
+            return "nil"
+        end
         local valueType = type(value)
         if valueType == "string" then
             return value
